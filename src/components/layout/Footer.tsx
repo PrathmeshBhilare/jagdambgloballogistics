@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Globe, MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Globe, MapPin, Phone, Mail, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -26,10 +26,7 @@ export default function Footer() {
               We help Indian manufacturers and businesses source, export, and grow internationally through reliable trade solutions.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="#" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="LinkedIn"><Linkedin size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/jagdambgloballogistics?igsh=d3dhN2Rxcng0Mng5" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -67,11 +64,15 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-amber-500 shrink-0" />
-                <span className="text-slate-400 text-sm">+91 98765 43210</span>
+                <span className="text-slate-400 text-sm">+91 90225 11535</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-amber-500 shrink-0" />
                 <span className="text-slate-400 text-sm">jagdambgloballogistics5@gmail.com</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={18} className="text-amber-500 shrink-0" />
+                <span className="text-slate-400 text-sm">logistics.jagdambglobal@gmail.com</span>
               </li>
             </ul>
           </div>
