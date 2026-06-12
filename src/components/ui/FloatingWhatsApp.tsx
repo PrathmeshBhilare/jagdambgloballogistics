@@ -1,5 +1,5 @@
 import { MessageCircle, Phone, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const executives = [
   { name: "Omkar Shinde", phone: "+91 83291 75333", waUrl: "https://wa.me/918329175333" },
@@ -9,9 +9,72 @@ const executives = [
 
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
+  const [positionY, setPositionY] = useState(0);
+  
+  const isDragging = useRef(false);
+  const hasDragged = useRef(false);
+  const startY = useRef(0);
+  const dragOffset = useRef(0);
+  
+  useEffect(() => {
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!isDragging.current) return;
+      
+      const deltaY = e.clientY - startY.current;
+      
+      if (Math.abs(deltaY) > 5) {
+        hasDragged.current = true;
+      }
+      
+      let newY = dragOffset.current + deltaY;
+      
+      // Limit to prevent dragging completely off screen
+      const maxUp = -(window.innerHeight - 150);
+      const maxDown = 20; 
+      
+      newY = Math.max(maxUp, Math.min(newY, maxDown));
+      setPositionY(newY);
+    };
+
+    const handlePointerUp = () => {
+      if (isDragging.current) {
+        isDragging.current = false;
+        document.body.style.userSelect = "";
+      }
+    };
+
+    document.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("pointerup", handlePointerUp);
+
+    return () => {
+      document.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("pointerup", handlePointerUp);
+    };
+  }, []);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    isDragging.current = true;
+    hasDragged.current = false;
+    startY.current = e.clientY;
+    dragOffset.current = positionY;
+    document.body.style.userSelect = "none";
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (hasDragged.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 z-50 flex flex-col items-end">
+    <div 
+      className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 z-50 flex flex-col items-end"
+      style={{ transform: `translateY(${positionY}px)` }}
+    >
       {isOpen && (
         <div className="bg-white rounded-2xl shadow-2xl mb-4 overflow-hidden w-80 sm:w-96 border border-slate-100 animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="bg-green-500 p-5 text-white flex justify-between items-center">
@@ -19,7 +82,7 @@ export default function FloatingWhatsApp() {
               <h3 className="font-bold text-lg">Contact Our Experts</h3>
               <p className="text-green-50 text-xs mt-0.5">We typically reply instantly</p>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-green-50 hover:text-white transition-colors">
+            <button onClick={(e) => { e.stopPropagation(); setIsOpen(false); }} className="text-green-50 hover:text-white transition-colors">
               <X size={24} />
             </button>
           </div>
@@ -35,6 +98,7 @@ export default function FloatingWhatsApp() {
                     href={`tel:${exec.phone.replace(/[\s+]/g, '')}`}
                     className="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-slate-200 transition-colors"
                     title="Call"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Phone size={16} />
                   </a>
@@ -44,6 +108,7 @@ export default function FloatingWhatsApp() {
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center hover:bg-green-200 transition-colors"
                     title="WhatsApp"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <MessageCircle size={16} />
                   </a>
@@ -55,11 +120,12 @@ export default function FloatingWhatsApp() {
       )}
       
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 flex items-center justify-center group"
+        onClick={handleClick}
+        onPointerDown={handlePointerDown}
+        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center group touch-none cursor-grab active:cursor-grabbing"
         aria-label="Contact Options"
       >
-        {isOpen ? <X size={32} /> : <MessageCircle size={32} />}
+        {isOpen ? <X size={32} className="pointer-events-none" /> : <MessageCircle size={32} className="pointer-events-none" />}
         {!isOpen && (
           <span className="absolute right-20 bg-white text-slate-800 text-sm font-bold px-4 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             Contact Us
