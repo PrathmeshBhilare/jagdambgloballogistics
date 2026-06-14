@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Send } from "lucide-react";
+import { useQuoteModal } from "../../context/QuoteContext";
 
 export default function CtaSection() {
+  const { openQuoteModal } = useQuoteModal();
   return (
     <section className="bg-amber-500 py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,12 +31,12 @@ export default function CtaSection() {
             <p className="text-slate-600 mb-10 text-lg">
               We highly value personal interaction. Reach out to us directly via phone, WhatsApp, or email to discuss your global trade requirements.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-10 py-5 uppercase text-xs tracking-widest font-bold transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
+            <button
+              onClick={openQuoteModal}
+              className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-10 py-5 uppercase text-xs tracking-widest font-bold transition-all shadow-md hover:shadow-lg w-full sm:w-auto cursor-pointer border-none"
             >
-              Contact Our Experts <ArrowRight size={18} />
-            </Link>
+              Request a Quote <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Globe2, ShieldCheck, Handshake, Target, ArrowRight } from "lucide-react";
+import { Globe2, ShieldCheck, Handshake, Target, ArrowRight, Award, FileText, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import CtaSection from "../components/sections/CtaSection";
 
@@ -64,6 +64,88 @@ export default function About() {
                 <p className="text-amber-900 font-medium">Exporting trust and quality across 5 continents.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications & Registrations */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif italic text-amber-600 mb-2 text-xl">Trust & Compliance</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-slate-900 uppercase tracking-tight">Official Registrations</h3>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              We operate with full transparency and adhere strictly to global and national compliance standards, recognized by legitimate governmental bodies.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* IEC Code */}
+            <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl relative overflow-hidden group hover:border-amber-500 hover:shadow-lg transition-all duration-300">
+              <div className="absolute -right-4 -top-4 p-6 opacity-[0.03] group-hover:opacity-10 transition-all duration-500 group-hover:scale-110">
+                <Globe2 size={140} />
+              </div>
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-amber-600 mb-6 shadow-sm border border-slate-100 relative z-10 group-hover:bg-amber-50 transition-colors">
+                <ShieldCheck size={28} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md tracking-wide uppercase flex items-center gap-1">
+                    <ShieldCheck size={12} /> Verified
+                  </span>
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">DGFT, Govt. of India</span>
+                </div>
+                <h4 className="text-2xl font-serif text-slate-900 mb-3">IEC Code</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Our active Importer Exporter Code enables seamless global trade operations, ensuring compliance with the Directorate General of Foreign Trade.
+                </p>
+              </div>
+            </div>
+
+            {/* Udyam Certificate */}
+            <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl relative overflow-hidden group hover:border-amber-500 hover:shadow-lg transition-all duration-300">
+              <div className="absolute -right-4 -top-4 p-6 opacity-[0.03] group-hover:opacity-10 transition-all duration-500 group-hover:scale-110">
+                <Award size={140} />
+              </div>
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-amber-600 mb-6 shadow-sm border border-slate-100 relative z-10 group-hover:bg-amber-50 transition-colors">
+                <Target size={28} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md tracking-wide uppercase flex items-center gap-1">
+                    <ShieldCheck size={12} /> Active
+                  </span>
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Ministry of MSME</span>
+                </div>
+                <h4 className="text-2xl font-serif text-slate-900 mb-3">Udyam Certified</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Officially registered under the Ministry of Micro, Small & Medium Enterprises, signifying our recognized and legitimate enterprise status.
+                </p>
+              </div>
+            </div>
+
+            {/* GST Certificate */}
+            <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl relative overflow-hidden group hover:border-amber-500 hover:shadow-lg transition-all duration-300">
+              <div className="absolute -right-4 -top-4 p-6 opacity-[0.03] group-hover:opacity-10 transition-all duration-500 group-hover:scale-110">
+                <FileText size={140} />
+              </div>
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-amber-600 mb-6 shadow-sm border border-slate-100 relative z-10 group-hover:bg-amber-50 transition-colors">
+                <FileCheck size={28} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md tracking-wide uppercase flex items-center gap-1">
+                    <ShieldCheck size={12} /> Compliant
+                  </span>
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Govt. of India</span>
+                </div>
+                <h4 className="text-2xl font-serif text-slate-900 mb-3">GST Registration</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Fully registered under the Goods and Services Tax framework, ensuring complete tax compliance and transparent financial dealings across all services.
+                </p>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>

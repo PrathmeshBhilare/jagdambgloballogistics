@@ -38,12 +38,12 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((svc, i) => (
-              <div key={i} className="bg-white p-8 border border-slate-100 hover:border-amber-500 transition-all group flex flex-col items-start relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <svc.icon size={120} />
+              <div key={i} className="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-500 transition-all duration-300 group flex flex-col items-start relative overflow-hidden rounded-xl">
+                <div className="absolute -top-4 -right-4 p-6 opacity-5 group-hover:opacity-10 transition-transform duration-500 group-hover:scale-110">
+                  <svc.icon size={140} />
                 </div>
-                <div className="w-10 h-10 border border-slate-200 text-slate-900 group-hover:border-amber-500 group-hover:text-amber-600 flex items-center justify-center mb-6 transition-colors bg-white relative z-10">
-                  <svc.icon size={20} />
+                <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white flex items-center justify-center mb-6 transition-all duration-300 relative z-10 shadow-sm group-hover:shadow-md">
+                  <svc.icon size={32} />
                 </div>
                 <h3 className="text-xl font-serif text-slate-900 mb-3 leading-tight relative z-10">{svc.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed relative z-10">{svc.desc}</p>

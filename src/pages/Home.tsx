@@ -2,6 +2,9 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Globe2, Clock, Users, CheckCircle2, ChevronRight, MessageSquareQuote } from "lucide-react";
 import CtaSection from "../components/sections/CtaSection";
+import { useQuoteModal } from "../context/QuoteContext";
+
+import TrustBadges from "../components/ui/TrustBadges";
 
 // Sample Data
 const workSteps = [
@@ -22,6 +25,8 @@ const faqs = [
 ];
 
 export default function Home() {
+  const { openQuoteModal } = useQuoteModal();
+  
   return (
     <div className="w-full overflow-hidden">
       {/* 1. Hero Section */}
@@ -70,6 +75,79 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* 2. Current Highlights */}
+      <section className="py-16 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6"
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-700 font-bold tracking-widest uppercase text-xs mb-3 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                Ready for Export
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight uppercase">Featured Products</h2>
+            </div>
+            <Link to="/products" className="text-amber-600 font-bold hover:text-amber-700 transition-colors flex items-center gap-2">
+              View all products <ChevronRight size={16} />
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                name: "Jaggery (Gur)", 
+                types: "Cubes • Blocks • Powder", 
+                img: "https://i.postimg.cc/CKbPGRCS/Chat-GPT-Image-Jun-14-2026-05-10-16-PM.png" 
+              },
+              { 
+                name: "Button Mushroom", 
+                types: "Fresh • Premium Quality", 
+                img: "https://i.postimg.cc/RCpRn1rP/Chat-GPT-Image-Jun-14-2026-05-12-18-PM.png" 
+              },
+              { 
+                name: "Strawberry", 
+                types: "Organic • Farm Fresh", 
+                img: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=800&auto=format&fit=crop" 
+              }
+            ].map((product, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-amber-500 block"
+              >
+                <div className="aspect-[4/3] relative overflow-hidden bg-slate-200">
+                  <img 
+                    src={product.img} 
+                    alt={product.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">{product.types}</p>
+                    <h3 className="text-2xl font-bold text-white shadow-sm">{product.name}</h3>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-slate-600 text-sm mb-4">Sourced directly from our trusted network, ensuring premium quality and compliance for your market.</p>
+                  <button onClick={openQuoteModal} className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-amber-600 transition-colors cursor-pointer bg-transparent border-none">
+                    Request Quote <ArrowRight size={16} />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 3. Why Choose Us */}
       <section id="why-us" className="py-20 lg:py-28 bg-slate-50">
@@ -110,13 +188,19 @@ export default function Home() {
       {/* 4. How We Work (Interactive Timeline) */}
       <section id="how-we-work" className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto mb-20"
+          >
             <h2 className="font-serif italic text-amber-600 mb-3 text-xl">Process</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-tight">How We Work</h3>
             <p className="text-slate-600 text-lg">
               A streamlined, transparent 6-step process ensuring quality and compliance from inquiry to delivery.
             </p>
-          </div>
+          </motion.div>
 
           <div className="relative">
             {/* Timeline line */}
@@ -124,7 +208,14 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
               {workSteps.map((step, i) => (
-                <div key={i} className="relative group">
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="relative group"
+                >
                   <div className="flex flex-col items-center text-center">
                     <div className="w-12 h-12 bg-white border border-slate-200 group-hover:border-amber-500 group-hover:bg-amber-500 group-hover:text-white flex items-center justify-center text-slate-400 font-serif font-bold text-xl mb-6 transition-colors shadow-sm relative z-10">
                       {i + 1}
@@ -132,7 +223,7 @@ export default function Home() {
                     <h4 className="text-lg font-bold text-slate-900 mb-2 leading-tight">{step.title}</h4>
                     <p className="text-sm text-slate-500">{step.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -142,11 +233,17 @@ export default function Home() {
       {/* 5. Testimonials (Sample Content) */}
       <section className="py-20 lg:py-28 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center max-w-3xl mx-auto mb-16">
+           <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6 }}
+             className="text-center max-w-3xl mx-auto mb-16"
+           >
             <h2 className="font-serif italic text-amber-500 mb-3 text-xl">Client Success</h2>
             <h3 className="text-3xl md:text-5xl font-bold mb-6 text-white uppercase tracking-tight">What Our Partners Say</h3>
              <p className="text-slate-400">Sample testimonials to showcase the quality of our relationships.</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -154,14 +251,21 @@ export default function Home() {
               { text: "As a first-time importer of garments, I was nervous about the process. The consulting team guided me through IEC and logistics perfectly.", author: "Sarah L.", role: "Boutique Owner, USA" },
               { text: "Reliable merchant exporters. Always transparent about lead times and proactive in communicating container status.", author: "Ahmed K.", role: "Distributor, UAE" },
             ].map((testimonial, i) => (
-              <div key={i} className="bg-slate-800 p-8 border border-slate-700 relative hover:border-amber-500 transition-colors">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-slate-800 p-8 border border-slate-700 relative hover:border-amber-500 transition-colors"
+              >
                 <MessageSquareQuote size={40} className="text-slate-700 absolute top-6 right-6" />
                 <p className="text-slate-300 italic mb-6 relative z-10">"{testimonial.text}"</p>
                 <div>
                 <h4 className="text-xl font-serif text-amber-500 mb-2">{testimonial.author}</h4>
                 <p className="text-xs uppercase tracking-widest text-slate-400">{testimonial.role}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -170,31 +274,60 @@ export default function Home() {
       {/* 6. FAQ Section */}
       <section className="py-20 lg:py-28 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
             <p className="text-slate-600">Common queries about our export and consulting services.</p>
-          </div>
+          </motion.div>
 
           <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-xl p-6 hover:border-amber-300 transition-colors">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-amber-300 transition-colors"
+              >
                 <h4 className="text-lg font-bold text-slate-900 mb-2 flex items-start gap-3">
                   <CheckCircle2 className="text-amber-500 shrink-0 mt-0.5" size={20} />
                   {faq.q}
                 </h4>
                 <p className="text-slate-600 ml-8 leading-relaxed">{faq.a}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-12"
+          >
             <p className="text-slate-600 mb-4">Have more questions?</p>
             <Link to="/contact" className="inline-flex items-center gap-2 text-amber-600 font-bold hover:text-amber-700 transition-colors">
               Contact our support team <ChevronRight size={18} />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Trust Badges */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <TrustBadges />
+      </motion.div>
 
       {/* CTA */}
       <CtaSection />

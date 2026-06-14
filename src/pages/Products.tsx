@@ -2,6 +2,7 @@ import { ArrowRight, PackageOpen, LayoutGrid, Beaker, Apple, ChevronLeft, Check 
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CtaSection from "../components/sections/CtaSection";
+import { useQuoteModal } from "../context/QuoteContext";
 
 const agriculturalCategories = [
   {
@@ -70,6 +71,7 @@ const agriculturalCategories = [
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const { openQuoteModal } = useQuoteModal();
 
   const activeCategory = agriculturalCategories.find(c => c.id === selectedCategory);
 
@@ -120,12 +122,12 @@ export default function Products() {
                 <p className="text-slate-600 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
                   Our merchant export capabilities extend beyond these categories. If you have a specific product requirement from India, submit your specifications and our team will source it for you.
                 </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest transition-colors"
+                <button
+                  onClick={openQuoteModal}
+                  className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest transition-colors cursor-pointer"
                 >
                   Request Custom Quote
-                </Link>
+                </button>
               </div>
             </>
           ) : (

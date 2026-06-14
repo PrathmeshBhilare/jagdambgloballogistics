@@ -31,7 +31,7 @@ export default function Footer() {
               We help Indian manufacturers and businesses source, export, and grow internationally through reliable trade solutions.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="https://www.instagram.com/jagdambgloballogistics?igsh=d3dhN2Rxcng0Mng5" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/jagdamb_global_logistics002?igsh=MWlpeGtqcTExcmxkbg==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
             </div>
           </div>
 

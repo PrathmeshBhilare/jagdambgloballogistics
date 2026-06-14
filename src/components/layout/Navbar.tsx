@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useQuoteModal } from "../../context/QuoteContext";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -14,6 +15,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <nav className="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
@@ -49,12 +51,12 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-colors shadow-sm"
+            <button
+              onClick={openQuoteModal}
+              className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-colors shadow-sm cursor-pointer"
             >
               Get a Quote
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,13 +96,15 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 text-center bg-slate-900 text-white px-4 py-3 rounded-md text-sm font-semibold shadow-sm"
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  openQuoteModal();
+                }}
+                className="mt-2 text-center bg-slate-900 text-white px-4 py-3 rounded-md text-sm font-semibold shadow-sm cursor-pointer"
               >
                 Get a Quote
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
