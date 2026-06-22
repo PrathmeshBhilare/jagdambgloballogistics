@@ -28,7 +28,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              We help Indian manufacturers and businesses source, export, and grow internationally through reliable trade solutions.
+              Jagdamb Global Logistics is an India-based Merchant Exporter and Global Sourcing Partner supplying spices, seeds, rice, natural sweeteners, and agricultural products to international buyers.
             </p>
             <div className="flex gap-4 pt-2">
               <a href="https://www.instagram.com/jagdamb_global_logistics002?igsh=MWlpeGtqcTExcmxkbg==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>

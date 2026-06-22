@@ -21,10 +21,10 @@ export default function About() {
               <h2 className="font-serif italic text-amber-600 mb-2 text-xl">Our Identity</h2>
               <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-tight">Who We Are</h3>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                JAGDAMB Global Logistics is a premier merchant export company based in India. We do not manufacture products; instead, we specialize in bridging the gap between high-quality Indian suppliers and international buyers.
+                Jagdamb Global Logistics works with approved manufacturers, processors, and producer groups across India to source quality agricultural products according to buyer specifications.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Our expertise lies in sourcing, compliance, documentation, and logistics. By acting as your trusted export partner, we minimize the risks of international trade and provide seamless end-to-end support for businesses looking to access global opportunities or source from the Indian subcontinent.
+                We support international buyers with sourcing, packaging, export documentation, and logistics coordination.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

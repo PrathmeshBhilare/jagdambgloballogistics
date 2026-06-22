@@ -11,10 +11,10 @@ export default function CtaSection() {
           <div className="lg:w-1/2 p-10 md:p-16 bg-slate-900 text-white flex flex-col justify-center relative">
              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 rounded-bl-[100%] opacity-10 pointer-events-none"></div>
              <h2 className="text-4xl sm:text-5xl font-serif mb-6 relative z-10">
-               Ready to take your business global?
+               Looking for a Reliable Indian Sourcing Partner?
              </h2>
              <p className="text-lg text-slate-300 mb-10 relative z-10">
-               Partner with JAGDAMB Global Logistics for reliable merchant trading, seamless compliance, and access to international markets.
+               Contact us to discuss your product requirements, specifications, packaging needs, and import requirements.
              </p>
              <div className="flex flex-col sm:flex-row gap-4 relative z-10">
                <Link

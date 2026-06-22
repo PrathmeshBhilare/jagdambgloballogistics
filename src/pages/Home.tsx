@@ -50,10 +50,10 @@ export default function Home() {
                 <span>Premier Merchant Exporters from India</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
-                Connecting Indian <br className="hidden sm:block" /><span className="text-amber-500 font-normal italic">Products</span> to Global Markets.
+                Premium Indian Agro Commodities <br className="hidden sm:block" /><span className="text-amber-500 font-normal italic">for Global Markets</span>
               </h1>
               <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
-                We help businesses source, export, and grow internationally through reliable trade solutions and expert export support services.
+                Jagdamb Global Logistics is an India-based Merchant Exporter and Global Sourcing Partner supplying spices, seeds, rice, natural sweeteners, and agricultural products to international buyers.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -98,22 +98,37 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                name: "Jaggery (Gur)", 
-                types: "Cubes • Blocks • Powder", 
-                img: "https://i.postimg.cc/CKbPGRCS/Chat-GPT-Image-Jun-14-2026-05-10-16-PM.png" 
+                name: "Jaggery Powder", 
+                types: "Organic • Unrefined", 
+                img: "https://i.postimg.cc/T32MBJZz/Chat-GPT-Image-Jun-22-2026-02-01-35-PM.png" 
               },
               { 
-                name: "Button Mushroom", 
-                types: "Fresh • Premium Quality", 
-                img: "https://i.postimg.cc/RCpRn1rP/Chat-GPT-Image-Jun-14-2026-05-12-18-PM.png" 
+                name: "Ginger Powder", 
+                types: "Premium Quality • Sun-dried", 
+                img: "https://i.postimg.cc/T104fZmv/Chat-GPT-Image-Jun-22-2026-01-39-10-PM.png" 
               },
               { 
-                name: "Strawberry", 
-                types: "Organic • Farm Fresh", 
-                img: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=800&auto=format&fit=crop" 
+                name: "Cumin Seeds", 
+                types: "Sortex Cleaned • High Essential Oil", 
+                img: "https://i.postimg.cc/DwCkhbhb/Chat-GPT-Image-Jun-22-2026-01-47-10-PM.png" 
+              },
+              { 
+                name: "Coriander Seeds", 
+                types: "Whole • Quality Graded", 
+                img: "https://i.postimg.cc/CxvT0f0Z/Chat-GPT-Image-Jun-22-2026-01-47-18-PM.png" 
+              },
+              { 
+                name: "Fenugreek Seeds", 
+                types: "Machine Cleaned", 
+                img: "https://i.postimg.cc/Qd6GDWDM/Chat-GPT-Image-Jun-22-2026-01-50-25-PM.png" 
+              },
+              { 
+                name: "Fennel Seeds", 
+                types: "Sweet & Aromatic", 
+                img: "https://i.postimg.cc/cL1yPBpJ/Chat-GPT-Image-Jun-22-2026-01-52-21-PM.png" 
               }
             ].map((product, i) => (
               <motion.div 
@@ -160,28 +175,50 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, title: "Trusted Supplier Network", desc: "Direct access to verified Indian manufacturers and farmers." },
-              { icon: ShieldCheck, title: "Transparent Communication", desc: "Clear, honest updates at every stage of the supply chain." },
-              { icon: Clock, title: "Timely Coordination", desc: "Efficient logistics management to ensure on-time delivery." },
+              "Reliable Supplier Network",
+              "Quality-Focused Sourcing",
+              "Competitive Pricing",
+              "Flexible Packaging Options",
+              "Export Documentation Support",
+              "Private Label Packaging",
+              "Global Logistics Support",
+              "Long-Term Business Partnerships"
             ].map((feature, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 shadow-sm border border-slate-100 hover:border-amber-500 hover:shadow-md transition-all group"
+                transition={{ delay: i * 0.05 }}
+                className="bg-white p-6 shadow-sm border border-slate-100 hover:border-amber-500 hover:shadow-md transition-all flex items-center gap-4"
               >
-                <div className="w-14 h-14 bg-slate-50 border border-slate-200 text-slate-900 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-500 flex items-center justify-center mb-6 transition-colors">
-                  <feature.icon size={28} />
+                <div className="w-10 h-10 shrink-0 bg-slate-50 border border-slate-200 text-amber-600 flex items-center justify-center rounded-full transition-colors">
+                  <CheckCircle2 size={20} />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h4>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <h4 className="text-base font-bold text-slate-900">{feature}</h4>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Certifications & Compliance */}
+      <section className="py-16 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6 }}
+          >
+            <ShieldCheck size={48} className="text-amber-500 mx-auto mb-6" />
+            <h2 className="text-3xl font-bold mb-4 uppercase tracking-tight">Certifications & Compliance</h2>
+            <p className="text-slate-300 text-lg leading-relaxed">
+              We work with approved supply partners capable of supporting product-specific compliance and certification requirements, including Organic Certifications, HACCP, ISO Standards, and other applicable documentation where required.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -226,47 +263,6 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Testimonials (Sample Content) */}
-      <section className="py-20 lg:py-28 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.6 }}
-             className="text-center max-w-3xl mx-auto mb-16"
-           >
-            <h2 className="font-serif italic text-amber-500 mb-3 text-xl">Client Success</h2>
-            <h3 className="text-3xl md:text-5xl font-bold mb-6 text-white uppercase tracking-tight">What Our Partners Say</h3>
-             <p className="text-slate-400">Sample testimonials to showcase the quality of our relationships.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { text: "JAGDAMB Global Logistics made sourcing spices from India incredibly straightforward. Their attention to compliance and documentation saved us weeks of delays.", author: "James M.", role: "Procurement Mgr, UK" },
-              { text: "As a first-time importer of garments, I was nervous about the process. The consulting team guided me through IEC and logistics perfectly.", author: "Sarah L.", role: "Boutique Owner, USA" },
-              { text: "Reliable merchant exporters. Always transparent about lead times and proactive in communicating container status.", author: "Ahmed K.", role: "Distributor, UAE" },
-            ].map((testimonial, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-slate-800 p-8 border border-slate-700 relative hover:border-amber-500 transition-colors"
-              >
-                <MessageSquareQuote size={40} className="text-slate-700 absolute top-6 right-6" />
-                <p className="text-slate-300 italic mb-6 relative z-10">"{testimonial.text}"</p>
-                <div>
-                <h4 className="text-xl font-serif text-amber-500 mb-2">{testimonial.author}</h4>
-                <p className="text-xs uppercase tracking-widest text-slate-400">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
