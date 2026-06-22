@@ -103,7 +103,7 @@ export default function Home() {
               { 
                 name: "Jaggery Powder", 
                 types: "Organic • Unrefined", 
-                img: "https://i.postimg.cc/T32MBJZz/Chat-GPT-Image-Jun-22-2026-02-01-35-PM.png" 
+                img: "https://i.postimg.cc/ZqYFhCc2/Chat-GPT-Image-Jun-22-2026-01-43-54-PM.png" 
               },
               { 
                 name: "Ginger Powder", 
@@ -139,11 +139,11 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-amber-500 block"
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-slate-200">
+                <div className="aspect-[4/3] relative overflow-hidden bg-slate-100 flex items-center justify-center p-2">
                   <img 
                     src={product.img} 
                     alt={product.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
