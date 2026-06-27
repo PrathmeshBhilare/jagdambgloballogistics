@@ -9,7 +9,7 @@ export default function About() {
       <section className="bg-slate-900 py-24 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-6xl text-white mb-4 tracking-tight uppercase">About Us</h1>
         <p className="text-lg text-amber-500 max-w-2xl mx-auto italic font-serif">
-          Your reliable merchant export partner, connecting Indian markets to the world with integrity and efficiency.
+          Your reliable global sourcing and export solutions partner, connecting Indian markets to the world with integrity and efficiency.
         </p>
       </section>
 
@@ -21,10 +21,13 @@ export default function About() {
               <h2 className="font-serif italic text-amber-600 mb-2 text-xl">Our Identity</h2>
               <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-tight">Who We Are</h3>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                Jagdamb Global Logistics works with approved manufacturers, processors, and producer groups across India to source quality agricultural products according to buyer specifications.
+                Jagdamb Global Logistics is an India-based Global Sourcing & Export Solutions Partner committed to helping international buyers source premium agricultural commodities and food products from reliable Indian manufacturers and processors.
+              </p>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                Our role is to simplify international sourcing by identifying suitable suppliers, obtaining competitive quotations, coordinating quality inspections, arranging customized packaging, assisting with export documentation, and supporting international logistics.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                We support international buyers with sourcing, packaging, export documentation, and logistics coordination.
+                We focus on building long-term partnerships through transparency, reliability, and efficient sourcing solutions.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

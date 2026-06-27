@@ -71,7 +71,7 @@ export default function Products() {
       <section className="bg-slate-900 py-24 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-6xl text-white mb-4 tracking-tight uppercase">Our Products</h1>
         <p className="text-lg text-amber-500 max-w-2xl mx-auto italic font-serif">
-          We specialize in high-quality agricultural exports sourced directly from Indian farms.
+          We specialize in global sourcing of high-quality agricultural commodities and food products.
         </p>
       </section>
 
@@ -115,7 +115,7 @@ export default function Products() {
               <div className="mt-16 bg-white p-8 md:p-12 border-l-4 border-amber-500 text-center max-w-4xl mx-auto shadow-sm">
                 <h3 className="text-3xl font-serif text-slate-900 mb-4">Looking for something specific?</h3>
                 <p className="text-slate-600 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                  Our merchant export capabilities extend beyond these categories. If you have a specific product requirement from India, submit your specifications and our team will source it for you.
+                  Our global sourcing capabilities extend beyond these categories. If you have a specific product requirement from India, submit your specifications and our team will source it for you.
                 </p>
                 <button
                   onClick={openQuoteModal}

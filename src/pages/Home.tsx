@@ -9,7 +9,7 @@ import TrustBadges from "../components/ui/TrustBadges";
 // Sample Data
 const workSteps = [
   { title: "Requirement Discussion", desc: "Understanding your product needs, specifications, and target market." },
-  { title: "Supplier Identification", desc: "Selecting the best-fit manufacturers from our trusted network in India." },
+  { title: "Supplier Identification", desc: "Selecting the best-fit verified manufacturing partners from our trusted network in India." },
   { title: "Quotation & Negotiation", desc: "Securing competitive pricing and finalizing technical parameters." },
   { title: "Documentation", desc: "Handling IEC, certificates of origin, and compliance paperwork." },
   { title: "Logistics & Shipping", desc: "Coordinating freight forwarding, customs clearance, and loading." },
@@ -17,11 +17,11 @@ const workSteps = [
 ];
 
 const faqs = [
-  { q: "Do you manufacture products?", a: "No, we are a merchant export company. We source high-quality products from trusted Indian manufacturers and farmers to export globally." },
+  { q: "Do you manufacture products?", a: "No, we are a global sourcing and export solutions partner. We source high-quality products from a trusted network of verified manufacturers and processors across India." },
   { q: "Can you source products from India?", a: "Yes, our primary expertise is connecting international buyers with verified Indian suppliers across various industries." },
   { q: "Do you help first-time exporters?", a: "Absolutely. We provide end-to-end consulting, from IEC registration to buyer identification and documentation." },
   { q: "Which countries do you export to?", a: "We have a global network and can facilitate exports to North America, Europe, the Middle East, Africa, and Southeast Asia." },
-  { q: "Can buyers request custom products?", a: "Yes, we handle custom sourcing requirements and can coordinate with manufacturers to meet specific buyer specifications." },
+  { q: "Can buyers request custom products?", a: "Yes, we handle custom sourcing requirements and can coordinate with verified manufacturing partners to meet specific buyer specifications." },
 ];
 
 export default function Home() {
@@ -47,13 +47,13 @@ export default function Home() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 text-amber-400 font-bold tracking-widest uppercase text-xs mb-6 border border-amber-500/30">
                 <Globe2 size={16} />
-                <span>Premier Merchant Exporters from India</span>
+                <span>Premier Global Sourcing & Export Solutions Partner from India</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
                 Premium Indian Agro Commodities <br className="hidden sm:block" /><span className="text-amber-500 font-normal italic">for Global Markets</span>
               </h1>
               <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
-                Jagdamb Global Logistics is an India-based Merchant Exporter and Global Sourcing Partner supplying spices, seeds, rice, natural sweeteners, and agricultural products to international buyers.
+                Jagdamb Global Logistics is an India-based Global Sourcing & Export Solutions Partner specializing in agricultural commodities and food products. We help international buyers source high-quality products from verified Indian manufacturers and processors while coordinating quotations, supplier communication, quality inspection, packaging, export documentation, and logistics support.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -101,33 +101,33 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                name: "Jaggery Powder", 
-                types: "Organic • Unrefined", 
+                name: "Natural Sweeteners", 
+                types: "Organic Jaggery", 
                 img: "https://i.postimg.cc/ZqYFhCc2/Chat-GPT-Image-Jun-22-2026-01-43-54-PM.png" 
               },
               { 
-                name: "Ginger Powder", 
-                types: "Premium Quality • Sun-dried", 
+                name: "Food Ingredients", 
+                types: "Global Sourcing", 
                 img: "https://i.postimg.cc/T104fZmv/Chat-GPT-Image-Jun-22-2026-01-39-10-PM.png" 
               },
               { 
-                name: "Cumin Seeds", 
-                types: "Sortex Cleaned • High Essential Oil", 
+                name: "Beans & Pulses", 
+                types: "Premium Indian Pulses", 
                 img: "https://i.postimg.cc/DwCkhbhb/Chat-GPT-Image-Jun-22-2026-01-47-10-PM.png" 
               },
               { 
-                name: "Coriander Seeds", 
-                types: "Whole • Quality Graded", 
+                name: "Seeds", 
+                types: "Premium • Export Quality", 
                 img: "https://i.postimg.cc/CxvT0f0Z/Chat-GPT-Image-Jun-22-2026-01-47-18-PM.png" 
               },
               { 
-                name: "Fenugreek Seeds", 
-                types: "Machine Cleaned", 
+                name: "Agricultural Commodities", 
+                types: "Global Sourcing", 
                 img: "https://i.postimg.cc/Qd6GDWDM/Chat-GPT-Image-Jun-22-2026-01-50-25-PM.png" 
               },
               { 
-                name: "Fennel Seeds", 
-                types: "Sweet & Aromatic", 
+                name: "Spices", 
+                types: "Whole • Powdered", 
                 img: "https://i.postimg.cc/cL1yPBpJ/Chat-GPT-Image-Jun-22-2026-01-52-21-PM.png" 
               }
             ].map((product, i) => (
@@ -177,14 +177,14 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              "Reliable Supplier Network",
-              "Quality-Focused Sourcing",
+              "Reliable Supplier Network Across India",
               "Competitive Pricing",
-              "Flexible Packaging Options",
-              "Export Documentation Support",
-              "Private Label Packaging",
-              "Global Logistics Support",
-              "Long-Term Business Partnerships"
+              "Verified Manufacturing Partners",
+              "Flexible Packaging Solutions",
+              "Buyer-Centric Approach",
+              "Professional Communication",
+              "End-to-End Export Support",
+              "Long-Term Business Relationships"
             ].map((feature, i) => (
               <motion.div 
                 key={i}

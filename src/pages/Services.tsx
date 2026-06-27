@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import CtaSection from "../components/sections/CtaSection";
 
 const services = [
-  { icon: FileText, title: "Export Documentation", desc: "Complete handling of invoices, packing lists, shipping bills, and certificates of origin." },
-  { icon: Award, title: "IEC Registration Guidance", desc: "Step-by-step assistance in obtaining your Importer-Exporter Code from the DGFT." },
-  { icon: Layers, title: "Buyer-Seller Coordination", desc: "Acting as the reliable bridge between international buyers and Indian manufacturers." },
-  { icon: Search, title: "Product Sourcing", desc: "Identifying, vetting, and auditing suppliers to match your exact quality specifications." },
-  { icon: Briefcase, title: "Export Compliance Support", desc: "Ensuring all shipments adhere to local and international trade laws, tariffs, and embargos." },
-  { icon: PackageCheck, title: "Packaging Guidance", desc: "Consulting on export-grade packaging standards, container optimization, and labeling requirements." },
-  { icon: Ship, title: "Shipping Coordination", desc: "Navigating freight forwarding, customs clearance, and securing optimal shipping rates." },
-  { icon: LineChart, title: "Market Research Assistance", desc: "Analyzing target markets, pricing strategies, and competitor landscapes for effective entry." },
+  { icon: Search, title: "Global Product Sourcing", desc: "Identifying and auditing verified Indian manufacturers and processors to match your exact specifications." },
+  { icon: Award, title: "Supplier Verification", desc: "Ensuring suppliers meet international standards for quality, safety, and reliability." },
+  { icon: Layers, title: "Price Negotiation", desc: "Securing competitive pricing through our extensive network and market knowledge." },
+  { icon: Briefcase, title: "Quality Inspection Coordination", desc: "Coordinating inspections to ensure products meet your required standards." },
+  { icon: PackageCheck, title: "Private Label Packaging", desc: "Arranging customized packaging solutions and private labeling for your brand." },
+  { icon: FileText, title: "Export Documentation Assistance", desc: "Complete handling of invoices, packing lists, shipping bills, and certificates of origin." },
+  { icon: Ship, title: "Logistics Coordination", desc: "Navigating freight forwarding, customs clearance, and securing optimal shipping rates." },
+  { icon: LineChart, title: "End-to-End Buyer Support", desc: "Acting as your dedicated partner for all sourcing and export needs in India." },
 ];
 
 export default function Services() {
@@ -32,7 +32,7 @@ export default function Services() {
             <h2 className="font-serif italic text-amber-600 mb-3 text-xl">Consultancy</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-tight">End-to-End Export Support</h3>
             <p className="text-slate-600 text-lg">
-              Whether you are an Indian manufacturer looking to expand overseas or an international buyer trying to source from India, our consulting services eliminate friction and mitigate risk.
+              As your dedicated sourcing and export solutions partner in India, we eliminate friction and mitigate risk for international buyers.
             </p>
           </div>
 
