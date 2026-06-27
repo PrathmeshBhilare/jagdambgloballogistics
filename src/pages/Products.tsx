@@ -10,7 +10,7 @@ const agriculturalCategories = [
     title: "Natural Sweeteners",
     desc: "Premium quality organic jaggery sourced directly from Indian farms.",
     icon: Cookie,
-    img: "https://i.postimg.cc/ZqYFhCc2/Chat-GPT-Image-Jun-22-2026-01-43-54-PM.png",
+    img: "https://i.postimg.cc/T32MBJZz/Chat-GPT-Image-Jun-22-2026-02-01-35-PM.png",
     products: [
       "Jaggery Powder",
       "Jaggery Cubes",
@@ -69,7 +69,7 @@ export default function Products() {
     <div className="w-full">
       {/* Header */}
       <section className="bg-slate-900 py-24 px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-6xl text-white mb-4 tracking-tight uppercase">Our Products</h1>
+        <h1 className="text-4xl md:text-6xl text-white mb-4 tracking-tight uppercase font-serif">Our Products</h1>
         <p className="text-lg text-amber-500 max-w-2xl mx-auto italic font-serif">
           We specialize in global sourcing of high-quality agricultural commodities and food products.
         </p>
@@ -92,8 +92,8 @@ export default function Products() {
                       <cat.icon size={180} className="text-slate-900" />
                     </div>
                     
-                    <div className="w-full aspect-[4/3] bg-slate-100 relative overflow-hidden z-10 flex items-center justify-center p-2">
-                      <img src={cat.img} alt={cat.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <div className="w-full aspect-[4/3] bg-slate-100 relative overflow-hidden z-10">
+                      <img src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </div>
 
                     <div className="p-8 flex flex-col flex-grow relative z-10 bg-white">
@@ -141,8 +141,8 @@ export default function Products() {
                   </div>
                   
                   {activeCategory.img && (
-                    <div className="w-full aspect-[4/3] relative overflow-hidden z-10 bg-slate-100 flex items-center justify-center p-4 lg:p-8">
-                      <img src={activeCategory.img} alt={activeCategory.title} className="w-full h-full object-contain drop-shadow-md rounded-xl" loading="lazy" />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden z-10 bg-slate-100">
+                      <img src={activeCategory.img} alt={activeCategory.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   )}
                   

@@ -101,33 +101,33 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                name: "Natural Sweeteners", 
-                types: "Organic Jaggery", 
+                name: "Jaggery Powder", 
+                types: "Organic • Unrefined", 
                 img: "https://i.postimg.cc/ZqYFhCc2/Chat-GPT-Image-Jun-22-2026-01-43-54-PM.png" 
               },
               { 
-                name: "Food Ingredients", 
-                types: "Global Sourcing", 
+                name: "Ginger Powder", 
+                types: "Premium Quality • Sun-dried", 
                 img: "https://i.postimg.cc/T104fZmv/Chat-GPT-Image-Jun-22-2026-01-39-10-PM.png" 
               },
               { 
-                name: "Beans & Pulses", 
-                types: "Premium Indian Pulses", 
+                name: "Cumin Seeds", 
+                types: "Sortex Cleaned • High Essential Oil", 
                 img: "https://i.postimg.cc/DwCkhbhb/Chat-GPT-Image-Jun-22-2026-01-47-10-PM.png" 
               },
               { 
-                name: "Seeds", 
-                types: "Premium • Export Quality", 
+                name: "Coriander Seeds", 
+                types: "Whole • Quality Graded", 
                 img: "https://i.postimg.cc/CxvT0f0Z/Chat-GPT-Image-Jun-22-2026-01-47-18-PM.png" 
               },
               { 
-                name: "Agricultural Commodities", 
-                types: "Global Sourcing", 
+                name: "Fenugreek Seeds", 
+                types: "Machine Cleaned", 
                 img: "https://i.postimg.cc/Qd6GDWDM/Chat-GPT-Image-Jun-22-2026-01-50-25-PM.png" 
               },
               { 
-                name: "Spices", 
-                types: "Whole • Powdered", 
+                name: "Fennel Seeds", 
+                types: "Sweet & Aromatic", 
                 img: "https://i.postimg.cc/cL1yPBpJ/Chat-GPT-Image-Jun-22-2026-01-52-21-PM.png" 
               }
             ].map((product, i) => (
@@ -139,11 +139,11 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-amber-500 block"
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-slate-100 flex items-center justify-center p-2">
+                <div className="aspect-[4/3] relative overflow-hidden bg-slate-100">
                   <img 
                     src={product.img} 
                     alt={product.name} 
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>

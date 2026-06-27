@@ -53,7 +53,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={openQuoteModal}
-              className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-colors shadow-sm cursor-pointer"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors shadow-sm cursor-pointer"
             >
               Get a Quote
             </button>
@@ -101,7 +101,7 @@ export default function Navbar() {
                   setIsOpen(false);
                   openQuoteModal();
                 }}
-                className="mt-2 text-center bg-slate-900 text-white px-4 py-3 rounded-md text-sm font-semibold shadow-sm cursor-pointer"
+                className="mt-2 text-center bg-slate-900 text-white px-4 py-3 text-xs font-bold uppercase tracking-widest shadow-sm cursor-pointer"
               >
                 Get a Quote
               </button>
