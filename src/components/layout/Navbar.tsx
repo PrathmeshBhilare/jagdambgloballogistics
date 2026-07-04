@@ -23,14 +23,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-slate-900 text-amber-500 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-              <span className="font-serif font-bold text-xl">J</span>
+            <div className="w-10 h-10 bg-slate-900 text-white rounded flex items-center justify-center shrink-0 group-hover:bg-brand-teal transition-colors">
+              <span className="font-bold text-xl">J</span>
             </div>
             <div className="flex flex-col justify-center leading-none">
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase text-slate-900">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
                 JAGDAMB
               </span>
-              <span className="text-amber-500 font-serif italic capitalize text-sm sm:text-base mt-0.5">
+              <span className="text-slate-500 font-medium text-sm sm:text-base mt-0.5">
                 Global Logistics
               </span>
             </div>
@@ -42,9 +42,9 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-semibold transition-colors ${
+                className={`text-sm font-medium transition-colors ${
                   pathname === link.path
-                    ? "text-amber-600"
+                    ? "text-brand-teal"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -53,7 +53,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={openQuoteModal}
-              className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors shadow-sm cursor-pointer"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors shadow-sm cursor-pointer"
             >
               Get a Quote
             </button>
@@ -87,9 +87,9 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-base font-semibold py-2 border-b border-slate-50 ${
+                  className={`block text-base font-medium py-2 border-b border-slate-50 ${
                     pathname === link.path
-                      ? "text-amber-600"
+                      ? "text-brand-teal"
                       : "text-slate-600"
                   }`}
                 >
@@ -101,7 +101,7 @@ export default function Navbar() {
                   setIsOpen(false);
                   openQuoteModal();
                 }}
-                className="mt-2 text-center bg-slate-900 text-white px-4 py-3 text-xs font-bold uppercase tracking-widest shadow-sm cursor-pointer"
+                className="mt-2 text-center bg-slate-900 text-white px-4 py-2.5 rounded-full text-sm font-medium shadow-sm cursor-pointer"
               >
                 Get a Quote
               </button>

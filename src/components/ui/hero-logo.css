@@ -1,0 +1,136 @@
+/* hero-logo.css */
+
+.hero-logo-container {
+  /* Dimensions and Layout */
+  position: relative;
+  width: 100%;
+  height: clamp(250px, 35vw, 450px);
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  
+  /* Fallback mouse vars */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Layer 1: Soft background glow */
+.hero-logo-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse closest-side at 50% 50%, rgba(37, 75, 126, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Layer 5: Mouse reactive radial light */
+.hero-logo-radial-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 350px at var(--mouse-x) var(--mouse-y), rgba(47, 175, 255, 0.15) 0%, transparent 100%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 2;
+  will-change: background;
+}
+
+/* Layer 6: Very subtle grain overlay */
+.hero-logo-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
+  /* subtle animated noise */
+  animation: noiseShift 8s steps(10) infinite;
+  /* Fade out edges so it blends perfectly into the footer without affecting text */
+  -webkit-mask-image: radial-gradient(ellipse closest-side at center, black 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse closest-side at center, black 0%, transparent 100%);
+}
+
+@keyframes noiseShift {
+  0% { background-position: 0% 0%; }
+  10% { background-position: -5% -10%; }
+  20% { background-position: -15% 5%; }
+  30% { background-position: 7% -25%; }
+  40% { background-position: 20% 25%; }
+  50% { background-position: -25% 10%; }
+  60% { background-position: 15% 5%; }
+  70% { background-position: 0% 15%; }
+  80% { background-position: 25% 35%; }
+  90% { background-position: -10% 10%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* SVG Wrapper to preserve ratio and fit */
+.hero-logo-svg-wrapper {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 1800px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-logo-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /* Pulse the SVG very softly */
+  animation: svgPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes svgPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.02); opacity: 1; }
+}
+
+/* Typography Base */
+.hero-logo-text {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-weight: 900;
+  font-size: 260px;
+  letter-spacing: -0.04em;
+  fill: transparent;
+}
+
+/* Layer 2: Outline base */
+.hero-logo-text-base {
+  stroke: #254B7E;
+  stroke-width: 1.5px;
+  opacity: 0.8;
+}
+
+/* Layer 4: Blurred Bloom (Backdrop) */
+.hero-logo-text-bloom {
+  stroke: #2FAFFF;
+  stroke-width: 4px;
+  opacity: 0.2;
+}
+
+/* Layer 3: Animated gradient stroke with dasharray shimmer */
+.hero-logo-text-animated {
+  stroke: url(#animatedStrokeGradient);
+  stroke-width: 2.5px;
+  stroke-dasharray: 600 300;
+  stroke-dashoffset: 0;
+  animation: shimmerDash 15s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+@keyframes shimmerDash {
+  0% {
+    stroke-dashoffset: 1800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

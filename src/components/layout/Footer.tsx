@@ -1,28 +1,29 @@
 import { Link } from "react-router-dom";
-import { Globe, MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { Globe, MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import Modal from "../ui/Modal";
+import HeroLogo from "../ui/HeroLogo";
 
 export default function Footer() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [termsOpen, setTermsOpen] = useState(false);
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8">
+    <footer className="bg-[#081321] border-t border-[#132a4a] pt-16 pb-0 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-4 relative z-10">
           
           {/* Brand Col */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2 group inline-flex mb-2">
-              <div className="w-10 h-10 bg-slate-800 text-amber-500 flex items-center justify-center shrink-0">
-                <span className="font-serif font-bold text-xl">J</span>
+            <Link to="/" className="flex items-center gap-2 group inline-flex mb-4">
+              <div className="w-10 h-10 bg-slate-800 text-white rounded flex items-center justify-center shrink-0 group-hover:bg-brand-teal transition-colors">
+                <span className="font-bold text-xl">J</span>
               </div>
               <div className="flex flex-col justify-center leading-none">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase text-white">
+                <span className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                   JAGDAMB
                 </span>
-                <span className="text-amber-500 font-serif italic capitalize text-sm sm:text-base mt-0.5">
+                <span className="text-slate-400 font-medium text-sm sm:text-base mt-0.5">
                   Global Logistics
                 </span>
               </div>
@@ -31,7 +32,8 @@ export default function Footer() {
               Jagdamb Global Logistics is an India-based Global Sourcing & Export Solutions Partner specializing in agricultural commodities and food products. We help international buyers source high-quality products from verified Indian manufacturers and processors while coordinating quotations, supplier communication, quality inspection, packaging, export documentation, and logistics support.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="https://www.instagram.com/jagdamb_global_logistics002?igsh=MWlpeGtqcTExcmxkbg==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/jagdamb_global_logistics002?igsh=MWlpeGtqcTExcmxkbg==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.linkedin.com/company/jagdamb-global-logistics" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={20} /></a>
             </div>
           </div>
 
@@ -39,9 +41,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-slate-400 hover:text-amber-500 text-sm transition-colors">About Us</Link></li>
-              <li><Link to="/products" className="text-slate-400 hover:text-amber-500 text-sm transition-colors">Products</Link></li>
-              <li><Link to="/services" className="text-slate-400 hover:text-amber-500 text-sm transition-colors">Export Consulting</Link></li>
+              <li><Link to="/about" className="text-slate-400 hover:text-white text-sm transition-colors">About Us</Link></li>
+              <li><Link to="/products" className="text-slate-400 hover:text-white text-sm transition-colors">Products</Link></li>
+              <li><Link to="/services" className="text-slate-400 hover:text-white text-sm transition-colors">Export Consulting</Link></li>
             </ul>
           </div>
 
@@ -62,21 +64,21 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-amber-500 shrink-0 mt-0.5" />
+                <MapPin size={18} className="text-slate-500 shrink-0 mt-0.5" />
                 <span className="text-slate-400 text-sm leading-tight">
                   Satara, Maharashtra, India 415501
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-amber-500 shrink-0" />
+                <Phone size={18} className="text-slate-500 shrink-0" />
                 <span className="text-slate-400 text-sm">+91 90225 11535</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-amber-500 shrink-0" />
+                <Mail size={18} className="text-slate-500 shrink-0" />
                 <span className="text-slate-400 text-sm">jagdambgloballogistics5@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-amber-500 shrink-0" />
+                <Mail size={18} className="text-slate-500 shrink-0" />
                 <span className="text-slate-400 text-sm">logistics.jagdambglobal@gmail.com</span>
               </li>
             </ul>
@@ -84,7 +86,10 @@ export default function Footer() {
 
         </div>
         
-        <div className="border-t border-slate-800 pt-8 mt-8 text-center sm:flex sm:justify-between sm:text-left">
+        {/* Large Outlined Text / Premium Hero Logo */}
+        <HeroLogo />
+        
+        <div className="border-t border-[#132a4a] pt-8 pb-8 text-center sm:flex sm:justify-between sm:text-left relative z-10">
           <p className="text-slate-500 text-xs">
             © {new Date().getFullYear()} JAGDAMB Global Logistics. All rights reserved.
           </p>

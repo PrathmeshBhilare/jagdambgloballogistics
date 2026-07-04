@@ -1,5 +1,5 @@
 import { MessageCircle, Phone, X } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const executives = [
   { name: "Omkar Shinde", phone: "+91 83291 75333", waUrl: "https://wa.me/918329175333" },
