@@ -1,207 +1,160 @@
-import { ArrowRight, ChevronLeft, Check, Cookie, Flame, Sprout, Wheat } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, ChevronRight, Filter } from "lucide-react";
+import { motion } from "motion/react";
 import CtaSection from "../components/sections/CtaSection";
-import { useQuoteModal } from "../context/QuoteContext";
-
-const agriculturalCategories = [
-  {
-    id: "sweeteners",
-    title: "Natural Sweeteners",
-    desc: "Premium quality organic jaggery sourced directly from Indian farms.",
-    icon: Cookie,
-    img: "https://i.postimg.cc/T32MBJZz/Chat-GPT-Image-Jun-22-2026-02-01-35-PM.png",
-    products: [
-      "Jaggery Powder",
-      "Jaggery Cubes",
-      "Jaggery Blocks"
-    ]
-  },
-  {
-    id: "spices",
-    title: "Spices",
-    desc: "Authentic, aromatic Indian spices to add flavor to global cuisines.",
-    icon: Flame,
-    img: "https://i.postimg.cc/cL1yPBpq/Chat-GPT-Image-Jun-22-2026-01-58-49-PM.png",
-    products: [
-      "Ginger Powder",
-      "Cumin Seeds",
-      "Coriander Seeds",
-      "Fennel Seeds",
-      "Fenugreek Seeds",
-      "Black Pepper",
-      "Cloves",
-      "Cinnamon",
-      "Cardamom",
-      "Chili"
-    ]
-  },
-  {
-    id: "seeds",
-    title: "Seeds",
-    desc: "Nutrient-rich seeds sourced and processed under strict quality control.",
-    icon: Sprout,
-    img: "https://i.postimg.cc/Jz7VS59g/Chat-GPT-Image-Jun-22-2026-02-06-47-PM.png",
-    products: [
-      "Chia Seeds",
-      "Pumpkin Seeds"
-    ]
-  },
-  {
-    id: "rice",
-    title: "Rice",
-    desc: "Premium long-grain basmati rice representing the best of Indian agriculture.",
-    icon: Wheat,
-    img: "https://i.postimg.cc/9QX5sYvs/Chat-GPT-Image-Jun-22-2026-02-03-40-PM.png",
-    products: [
-      "Basmati Rice"
-    ]
-  }
-];
+import ProductModal, { ProductDetails } from "../components/ui/ProductModal";
+import { productsData, ProductData } from "../data/products";
 
 export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const { openQuoteModal } = useQuoteModal();
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Products");
+  const [selectedProduct, setSelectedProduct] = useState<ProductDetails | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const activeCategory = agriculturalCategories.find(c => c.id === selectedCategory);
+  // Extract unique categories
+  const categories = ["All Products", ...Array.from(new Set(productsData.map(p => p.category)))];
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory === "All Products" 
+    ? productsData 
+    : productsData.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="w-full">
-      {/* Header */}
-      <section className="bg-slate-50 border-b border-slate-100 py-24 px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 tracking-tighter font-bold">Our Products</h1>
-        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          We specialize in global sourcing of high-quality agricultural commodities and food products.
-        </p>
-      </section>
-
-      {/* Main Content Area */}
-      <section className="py-20 lg:py-28 bg-slate-50 min-h-[60vh]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {!selectedCategory ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {agriculturalCategories.map((cat, i) => (
-                  <div 
-                    key={i} 
-                    className="bg-white rounded-2xl border border-slate-100 hover:border-slate-300 transition-all group flex flex-col cursor-pointer relative overflow-hidden shadow-sm hover:shadow-md"
-                    onClick={() => setSelectedCategory(cat.id)}
-                  >
-                    <div className="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none z-0">
-                      <cat.icon size={180} className="text-slate-900" />
-                    </div>
-                    
-                    <div className="w-full aspect-[4/3] bg-slate-100 relative overflow-hidden z-10">
-                      <img src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                    </div>
-
-                    <div className="p-8 flex flex-col flex-grow relative z-10 bg-white">
-                      <div className="w-14 h-14 bg-white text-brand-teal flex items-center justify-center rounded-2xl mb-6 shadow-sm border border-slate-100 group-hover:bg-slate-50 transition-colors -mt-14 relative z-20">
-                        <cat.icon size={26} />
-                      </div>
-                      
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">{cat.title}</h3>
-                      <p className="text-slate-500 mb-8 flex-grow text-sm leading-relaxed">{cat.desc}</p>
-                      
-                      <div className="inline-flex items-center gap-2 text-slate-900 text-sm font-medium group-hover:text-brand-teal transition-colors mt-auto pt-6 border-t border-slate-100">
-                        View Products <ArrowRight size={16} />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-16 bg-white p-8 md:p-12 rounded-2xl border border-slate-200 text-center max-w-4xl mx-auto shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Looking for something specific?</h3>
-                <p className="text-slate-500 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Our global sourcing capabilities extend beyond these categories. If you have a specific product requirement from India, submit your specifications and our team will source it for you.
-                </p>
-                <button
-                  onClick={openQuoteModal}
-                  className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-full text-sm font-medium transition-colors cursor-pointer"
-                >
-                  Request Custom Quote
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="max-w-4xl mx-auto">
-              <button 
-                onClick={() => setSelectedCategory(null)}
-                className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-8 text-sm font-medium transition-colors"
-              >
-                <ChevronLeft size={18} /> Back to Categories
-              </button>
-              
-              {activeCategory && (
-                <div className="bg-white border border-slate-100 rounded-3xl shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none z-0">
-                    <activeCategory.icon size={250} className="text-slate-900" />
-                  </div>
-                  
-                  {activeCategory.img && (
-                    <div className="w-full aspect-[4/3] relative overflow-hidden z-10 bg-slate-100">
-                      <img src={activeCategory.img} alt={activeCategory.title} className="w-full h-full object-cover" loading="lazy" />
-                    </div>
-                  )}
-                  
-                  <div className="p-10 md:p-14 relative z-20 bg-white">
-                    <div className="flex items-center gap-6 mb-8">
-                      <div className="w-16 h-16 bg-white text-brand-teal flex items-center justify-center rounded-2xl border border-slate-100 shrink-0 shadow-sm">
-                         <activeCategory.icon size={32} />
-                      </div>
-                    </div>
-                    
-                    <div className="mb-8">
-                      <div className="inline-block bg-slate-100 text-slate-600 px-3 py-1 text-xs font-medium mb-3 rounded-full">
-                        Agri-Export Category
-                      </div>
-                      <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">{activeCategory.title}</h2>
-                    </div>
-                    
-                    <p className="text-slate-500 mb-10 text-lg leading-relaxed max-w-3xl">
-                      {activeCategory.desc}
-                    </p>
-                    
-                    {activeCategory.products.length > 0 ? (
-                      <div className="mb-12">
-                        <h4 className="text-sm font-semibold text-slate-900 mb-6 pb-4 border-b border-slate-100">Available Products</h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-                          {activeCategory.products.map((product, i) => (
-                            <li key={i} className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-                                <Check size={14} className="text-brand-green" />
-                              </div>
-                              <span className="text-slate-700 font-medium">{product}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : (
-                      <div className="mb-12 bg-slate-50 p-8 border border-slate-100 rounded-xl text-center">
-                        <p className="text-slate-600 italic">Please contact us directly to discuss your custom sourcing requirements in detail.</p>
-                      </div>
-                    )}
-
-                    <div className="flex justify-start">
-                      <Link
-                        to="/contact"
-                        className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-full text-sm font-medium transition-colors shadow-sm"
-                      >
-                        Inquire About {activeCategory.id === "custom" ? "Requirements" : "These Products"}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+    <div className="w-full bg-slate-50 min-h-screen">
+      {/* Page Header */}
+      <div className="bg-[#081321] py-16 sm:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#132a4a]/30 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight">Our Products</h1>
+            <div className="flex items-center justify-center gap-2 text-sm text-slate-400">
+              <Link to="/" className="hover:text-brand-teal transition-colors">Home</Link>
+              <ChevronRight size={14} />
+              <span className="text-white">Products</span>
+              {selectedCategory !== "All Products" && (
+                <>
+                  <ChevronRight size={14} />
+                  <span className="text-brand-teal">{selectedCategory}</span>
+                </>
               )}
             </div>
-          )}
-
+          </div>
         </div>
-      </section>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col lg:flex-row gap-8">
+          
+          {/* Mobile Category Toggle */}
+          <div className="lg:hidden">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-full flex items-center justify-between bg-white px-4 py-3 border border-slate-200 rounded-lg shadow-sm text-slate-900 font-medium"
+            >
+              <div className="flex items-center gap-2">
+                <Filter size={18} className="text-brand-teal" />
+                Categories: {selectedCategory}
+              </div>
+              <ChevronRight size={18} className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
+            </button>
+          </div>
+
+          {/* Sidebar / Categories */}
+          <div className={`lg:w-1/4 flex-shrink-0 ${mobileMenuOpen ? 'block' : 'hidden lg:block'}`}>
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden sticky top-24">
+              <div className="bg-slate-50 px-5 py-4 border-b border-slate-200">
+                <h3 className="font-bold text-slate-900 text-lg">Product Categories</h3>
+              </div>
+              <ul className="flex flex-col">
+                {categories.map((cat, i) => (
+                  <li key={i}>
+                    <button
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-5 py-3.5 border-l-4 transition-all flex justify-between items-center ${
+                        selectedCategory === cat 
+                          ? "border-brand-teal bg-brand-teal/5 text-brand-teal font-semibold" 
+                          : "border-transparent hover:bg-slate-50 text-slate-700 hover:text-slate-900"
+                      }`}
+                    >
+                      {cat}
+                      {selectedCategory === cat && <ChevronRight size={16} />}
+                    </button>
+                    {i < categories.length - 1 && <div className="h-[1px] w-full bg-slate-100" />}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="lg:w-3/4 flex-grow">
+            <div className="mb-6 flex justify-between items-end">
+              <h2 className="text-2xl font-bold text-slate-900">{selectedCategory}</h2>
+              <span className="text-sm text-slate-500 font-medium">{filteredProducts.length} Products</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredProducts.map((product, i) => (
+                <motion.div
+                  key={product.name + i}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-brand-teal flex flex-col group"
+                >
+                  <div className="aspect-[4/3] bg-slate-100 relative overflow-hidden border-b border-slate-100">
+                    <img 
+                      src={product.img} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  
+                  <div className="p-5 flex flex-col flex-grow">
+                    <div className="text-xs font-semibold tracking-wider text-brand-teal uppercase mb-1">{product.category}</div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 leading-tight">{product.name}</h3>
+                    
+                    <div className="flex flex-col gap-1.5 mb-4 text-sm mt-auto">
+                      <div className="flex justify-between border-b border-slate-50 pb-1.5">
+                        <span className="text-slate-500">MOQ</span>
+                        <span className="font-medium text-slate-900">{product.moq}</span>
+                      </div>
+                      <div className="flex justify-between border-b border-slate-50 pb-1.5">
+                        <span className="text-slate-500">Type</span>
+                        <span className="font-medium text-slate-900 text-right max-w-[120px] truncate">{product.packagingType}</span>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => setSelectedProduct(product)}
+                      className="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors mt-auto"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {filteredProducts.length === 0 && (
+              <div className="text-center py-20 bg-white rounded-xl border border-slate-200">
+                <p className="text-slate-500 text-lg">No products found in this category.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
 
       <CtaSection />
+
+      <ProductModal 
+        product={selectedProduct} 
+        isOpen={!!selectedProduct} 
+        onClose={() => setSelectedProduct(null)} 
+      />
     </div>
   );
 }
